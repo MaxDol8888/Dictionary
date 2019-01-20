@@ -1,0 +1,34 @@
+#Hapilin
+a = [str(i) for i in input().split()]
+b = dict()
+for i in *a:
+    if i not in b:
+        b.update({i : 0})
+    else:
+        b.update({i : b[i]+1})
+    print(b[i] , end = " ")
+
+
+counter = {}
+for word in input().split():
+    counter[word] = counter.get(word, 0) + 1
+    print(counter[word] - 1, end=' ')
+
+
+a=input().split()
+d=dict(zip(list(range(len(a))),a))
+r=[]
+for val in d.values():
+    print (r.count(val),end=' ')
+    r.append(val)
+
+
+a = input().split()
+d = {}
+for str in a:
+    if str in d:
+        print(d[str], end = ' ')
+        d[str] += 1
+    else:
+        print(0, end = ' ')
+        d[str] = 1
