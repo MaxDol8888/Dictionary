@@ -1,0 +1,41 @@
+#Hapilin
+n = int(input())
+b = dict()
+for i in range(n):
+    slovo,znachenie = [i for i in input().split()]
+    b.update({slovo : znachenie})
+    b.update({znachenie : slovo})
+dictslov = input()
+print(b[dictslov])
+
+
+n = int(input())
+d = {}
+for i in range(n):
+    first, second = input().split()
+    d[first] = second
+    d[second] = first
+print(d[input()])
+
+
+n = int(input())
+d = {}
+for i in range(n): 
+    a = input().split()
+    d[a[0]] = a[1]
+    d[a[1]] = a[0]
+word = input()
+print(d[word])
+
+
+n = int(input())
+s = {}
+for i in range(n):
+    key, word = [i for i in input().split()]
+    s[key] = word
+word = input()
+for key in s:
+    if s[key] == word: print(key)
+    if key == word: print(s[key])
+
+
