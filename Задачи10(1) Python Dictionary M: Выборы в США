@@ -1,0 +1,55 @@
+#Hapilin
+n = int(input())
+a = dict()
+k = int(0)
+for i in range(n):
+    chel,gol = [i for i in input().split()]
+    if chel in a:
+        k = int(a[chel])
+        a.update({chel: int(gol) + k})
+    else:
+        k = int(0)
+        a.update({chel: int(gol) + k})
+        k = int(a[chel])
+for i in sorted(a):
+    print(i, a[i])
+
+
+num_votes = {}
+for _ in range(int(input())):
+    candidate, votes = input().split()
+    num_votes[candidate] = num_votes.get(candidate, 0) + int(votes)
+
+for candidate, votes in sorted(num_votes.items()):
+    print(candidate, votes)
+
+
+n = int(input())
+d= {}
+for i in range(n):
+    name, score = input().split()
+    d[name] = d.get(name, 0) + int(score)
+for i in sorted(d.keys()):
+    print(i, d[i])
+
+
+num_votes = {}
+for _ in range(int(input())):
+    candidate, votes = input().split()
+    num_votes[candidate] = num_votes.get(candidate, 0) + int(votes)
+for candidate, votes in sorted(num_votes.items()):
+    print(candidate, votes)
+
+
+n = int(input())
+result = {}
+
+for i in range(n):
+    president, voices = input().split()
+    if president in result:
+        result[president] += int(voices)
+    else:
+        result[president] = int(voices)
+        
+for key in sorted(result.keys()):
+    print(key, result[key])
