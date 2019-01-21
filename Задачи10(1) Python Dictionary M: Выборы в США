@@ -23,7 +23,16 @@ for _ in range(int(input())):
 for candidate, votes in sorted(num_votes.items()):
     print(candidate, votes)
 
-
+#Gura
+q = {}
+for i in range(int(input())):
+    k, v = input().split()
+    q[k] = q.get(k, 0) + int(v)
+ 
+for k, v in sorted(q.items()):
+    print(k, v)
+    
+    
 n = int(input())
 d= {}
 for i in range(n):
