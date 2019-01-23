@@ -1,1 +1,31 @@
 #Hapilin
+b = dict()
+for i in range(int(input())):
+    slova = [str(i) for i in input().split(" - ")]
+    for i in slova[1::]:
+        z = i.split(", ")
+        for j in z:
+            if j not in b:
+                b.update({j:slova[0]})
+            else:
+                a = []
+                a.append(b[j])
+                a.append(slova[0])
+                b.update({j:a})
+k = int(0)
+for i in b:
+    k+=1
+print(k)
+for i in sorted(b):
+    z = i.split(", ")
+    for j in z:
+        if type(b[i]) == str:
+            print(j,"-",b[i])
+        else:
+            b[i] = str(b[i])
+            b[i] = str(b[i]).replace("]","")
+            b[i] = str(b[i]).replace("[","")
+            b[i] = str(b[i]).replace("'","")
+            print(j,"-",b[i])
+            
+
