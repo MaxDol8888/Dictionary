@@ -19,6 +19,17 @@ for i in range(int(input())):
     print(motherland[input()])
 
 
+#Hapilin
+b = dict()
+for i in range(int(input())):
+    goroda = [str(i) for i in input().split()]
+    for i in goroda[1::]:
+        b.update({i:goroda[0]})
+for i in range(int(input())):
+    gorod = str(input())
+    print(b[gorod])
+
+
 d = {}
 for i in range(int(input())):
     l = input().split()
