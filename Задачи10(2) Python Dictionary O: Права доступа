@@ -1,1 +1,94 @@
-#Alina
+#Hapilin
+file_sys = dict()
+for i in range(int(input())):
+    fil = [str(i) for i in input().split()]
+    file_sys.update({fil[0] : fil[1::]})
+for i in range(int(input())):
+    op,fil = [str(i) for i in input().split()]
+    if op == "read":
+        if "R" in file_sys[fil]:
+            print("OK")
+        else:
+            print("Access denied")
+    elif op == "write":
+        if "W" in file_sys[fil]:
+            print("OK")
+        else:
+            print("Access denied")
+    elif op == "execute":
+        if "X" in file_sys[fil]:
+            print("OK")
+        else:
+            print("Access denied")     
+
+
+ACTION_PERMISSION = {
+    'read': 'R',
+    'write': 'W',
+    'execute': 'X',
+}
+
+file_permissions = {}
+for i in range(int(input())):
+    file, *permissions = input().split()
+    file_permissions[file] = set(permissions)
+
+for i in range(int(input())):
+    action, file = input().split()
+    if ACTION_PERMISSION[action] in file_permissions[file]:
+        print('OK')
+    else:
+        print('Access denied')
+    
+
+d = {}
+
+for n in range(int(input())):
+    vals = input().split()
+    d[vals[0]] = vals[1:]
+
+for n in range(int(input())):
+    oper, file = input().split()
+    if oper == 'write' and 'W' in d[file]:
+        print('OK')
+    elif oper == 'read' and 'R' in d[file]:
+        print('OK')
+    elif oper == 'execute' and 'X' in d[file]:
+        print('OK')    
+    else:
+        print('Access denied')
+
+
+a=[input().split() for i in range(int(input()))]
+b=[input().split() for k in range(int(input()))]
+slov1={}
+slov2={}
+for h in range(len(b)):
+    if 'read' in b[h]:
+        b[h].append('R')
+    elif 'write' in b[h]:
+        b[h].append('W')
+    elif 'execute' in b[h]:
+        b[h].append('X')
+for t in range(len(a)):
+    slov1[a[t][0]]=a[t][1:]
+for p in range(len(b)):
+    if b[p][2] in slov1[b[p][1]]:
+        print('OK')
+    else:
+        print('Access denied')
+
+
+filename = dict()
+access = {'read': 'R', 'write': 'W', 'execute': 'X'}
+
+for i in range(int(input())):
+    string = input().split()
+    filename[string[0]] = string[1:]
+
+for i in range(int(input())):
+    string = input().split()
+    if access[string[0]] in filename[string[1]]:
+        print('OK')
+    else:
+        print('Access denied')
