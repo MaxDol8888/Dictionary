@@ -1,0 +1,41 @@
+#Alina
+motherland = {}
+for i in range(int(input())):
+    c, *ci = input().split()
+    for city in ci:
+        motherland[city] = c
+         
+for i in range(int(input())):
+    print(motherland[input()])
+
+
+motherland = {}
+for i in range(int(input())):
+    country, *cities = input().split()
+    for city in cities:
+        motherland[city] = country
+        
+for i in range(int(input())):
+    print(motherland[input()])
+
+
+d = {}
+for i in range(int(input())):
+    l = input().split()
+    for j in range(len(l)):
+        d[l[j]] = l[0]
+
+for k in range(int(input())):
+    n = input()
+    if n in d:
+        print(d[n])
+
+
+atlas={}
+for i in range(int(input())):
+    country, *towns = input().split()
+    for town in towns:
+        atlas[town]=country
+for j in range(int(input())):
+    town=input()
+    print(atlas.get(town, country))
