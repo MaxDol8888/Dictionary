@@ -1,4 +1,4 @@
-#Hapilin
+#Hapilin v. 1.0
 b = dict()
 for i in range(int(input())):
     a = [str(i) for i in input().split()]
@@ -9,6 +9,21 @@ for i in range(int(input())):
             b.update({j : b[j]+1})
 for i in b:
     if b[i] < b[max(b, key=b.get)]:
+        del b[i]
+print(min(sorted(b)))
+
+
+#Hapili v. 2.0
+b = dict()
+for i in range(int(input())):
+    a = [str(i) for i in input().split()]
+    for j in a:
+        if j not in b:
+            b.update({j : 1})
+        else:
+            b.update({j : b[j]+1})
+for i in b:
+    if b[i] < max(b.values()):
         del b[i]
 print(min(sorted(b)))
 
