@@ -65,6 +65,8 @@ slov1={}
 slov2={}
 for h in range(len(b)):
     if 'read' in b[h]:
+    
+    
         b[h].append('R')
     elif 'write' in b[h]:
         b[h].append('W')
