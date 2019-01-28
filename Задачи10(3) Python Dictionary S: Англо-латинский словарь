@@ -29,3 +29,18 @@ for i in sorted(b):
             print(j,"-",b[i])
             
 
+#Alina
+from collections import defaultdict
+ 
+le = defaultdict(list)
+for i in range(int(input())):
+    ew, ltc = input().split(' - ')
+    lt = ltc.split(', ')
+    for lw in lt :
+        le[lw].append(ew)
+     
+print(len(le))
+for lw, et in sorted(le.items()):
+    print(lw + ' - ' + ', '.join(et))
+
+
