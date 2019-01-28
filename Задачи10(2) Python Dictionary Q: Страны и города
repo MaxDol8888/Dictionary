@@ -50,3 +50,4 @@ for i in range(int(input())):
 for j in range(int(input())):
     town=input()
     print(atlas.get(town, country))
+
