@@ -9,6 +9,26 @@ w = [pair[1] for pair in sorted(pairs)]
 print('\n'.join(w))
 
 
+#Hapilin
+b = dict()
+for i in range(int(input())):
+    a = [str(i) for i in input().split()]
+    for j in a:
+        if j not in b:
+            b.update({j : 1})
+        else:
+            b.update({j : b[j]+1})
+
+for i in range(max(b.values()),-1,-1):
+    znach = []
+    if i in b.values():
+        for a,c in b.items():
+            if c == i:
+                znach.append(a)
+        for j in sorted(znach):
+            print(j)
+            
+
 from collections import Counter
 
 words = []
