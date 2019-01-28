@@ -76,3 +76,4 @@ for i in range(n):
         
 for key in sorted(result.keys()):
     print(key, result[key])
+
