@@ -1,0 +1,20 @@
+#Hapilin
+slov = dict()
+for i in range(int(input())):
+    word = str(input())
+    slov.update({word:word.lower()})
+dictant = [str(i) for i in input().split()]
+oshibka = int(0)
+for i in dictant:
+    if i.lower() not in slov.values():
+        schet = int(0)
+        for j in i:
+            if j.isupper() == True:
+                schet += 1
+        if schet >1 or schet == 0:
+            oshibka += 1
+    else:
+        if i not in slov.keys():
+            oshibka += 1
+print(oshibka)
+
