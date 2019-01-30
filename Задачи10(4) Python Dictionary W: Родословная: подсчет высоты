@@ -104,3 +104,5 @@ for _ in range(n - 1):
         gen[parent] = None
 for k, v in sorted(gen.items()):
     print(k, depth(gen, k))
+
+
