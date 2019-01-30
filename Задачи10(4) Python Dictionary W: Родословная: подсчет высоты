@@ -18,3 +18,89 @@ for k,v in sorted(b.items()):
     print(c, d-1)
     
     
+def height(man):
+    if man not in p_tree:
+        return 0
+    else:
+        return 1 + height(p_tree[man])
+
+p_tree = {}
+n = int(input())
+for i in range(n - 1):
+    child, parent = input().split()
+    p_tree[child] = parent
+
+heights = {}
+for man in set(p_tree.keys()).union(set(p_tree.values())):
+    heights[man] = height(man)
+
+for key, value in sorted(heights.items()):
+    print(key, value)
+
+
+a=int(input())
+sons={}
+persons=[]
+for i in range (a-1):
+    b=str(input()).split()
+    sons[b[0]]=b[1]
+    for i in b:
+        persons.append(i)
+        
+def findfather (k, c):
+    if k not in sons.keys():
+        return c
+    else:
+        return findfather (sons[k], c+1)
+       
+tree={}
+for i in persons:
+    if i not in tree:
+        b=0
+        tree[i]=findfather(i, b)
+    
+for i in sorted(tree):
+    print (i, tree[i])
+
+
+def filling(men, level):
+    global Parents
+    Parents[men] = level
+    if men not in Connections:
+        return
+    for child in Connections[men]:
+        filling(child, level+1)
+Connections = {}
+Parents = {}
+Childs = set()
+n = int(input())
+for i in range(n-1):
+    child, parent = input().split()
+    Connections[parent] = Connections.get(parent, set()) | {child}
+    Parents[parent] =0
+    Childs |= {child}
+head = set(Parents.keys()) - Childs
+filling(head.pop(), 0)
+for key in sorted(Parents.keys()):
+    print(key, Parents[key])
+
+
+def depth(tree, k):
+    d = 0
+    while (tree[k]):
+        try: 
+            k = tree[k]
+            d += 1
+        except (KeyError):
+            break
+    return d
+ 
+n = int(input())
+gen = dict()
+for _ in range(n - 1):
+    child, parent = input().split()
+    gen[child] = parent
+    if not parent in gen:
+        gen[parent] = None
+for k, v in sorted(gen.items()):
+    print(k, depth(gen, k))
