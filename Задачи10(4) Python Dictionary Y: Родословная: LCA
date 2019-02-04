@@ -1,0 +1,137 @@
+#Hapilin
+d = {}
+for i in range(int(input()) - 1):
+    a, b = input().split()
+    d[a] = b
+for i in range(int(input())):
+    a, b = input().split()
+    pervoe_dit, vtoroe_dit = [], []
+    while a in d:
+        pervoe_dit.append(a)
+        a = d[a]
+    pervoe_dit.append(a)
+    while b in d:
+        vtoroe_dit.append(b)
+        b = d[b]
+    vtoroe_dit.append(b)
+    for a in pervoe_dit:
+        if a in vtoroe_dit:
+            print(a)
+            break
+
+
+def ancestors(child, p_tree):
+    result = []
+    result.append(child)
+    while child in p_tree:
+        child = p_tree[child]
+        result.append(child)
+    return result
+
+p_tree = dict()
+n = int(input())
+for i in range(n - 1):
+    child, parent = input().split()
+    p_tree[child] = parent
+    
+m = int(input())
+for i in range(m):
+    child_1, child_2 = input().split()
+    ancestors_for_1 = set(ancestors(child_1, p_tree))
+    for ancestor in ancestors(child_2, p_tree):
+        if ancestor in ancestors_for_1:
+            print(ancestor)
+            break
+
+
+def comm_parent(man1, man2):
+    man_t = man2
+    while True:
+        if man1 == man_t:
+            break
+        elif tree[man_t] == '':
+            man1 = tree[man1]
+            man_t = man2
+        else:
+            man_t = tree[man_t]
+        
+    return man1
+    
+
+tree = {}
+
+for i in range(int(input()) - 1):
+    child, parent = input().split()
+    tree[child] = parent
+    if parent not in tree:
+        tree[parent] = ''
+        
+for i in range(int(input())):
+    man1, man2 = input().split()
+    print(comm_parent(man1, man2))
+
+
+parentOfChild = dict()
+
+def findCommonAncestor(A, B):
+    ancestorsOfA = {A}
+    ancestorsOfB = {B}
+    
+    while True:
+        if parentOfChild.get(A):
+            ancestorsOfA.add(parentOfChild[A])
+            A = parentOfChild[A]
+        elif parentOfChild.get(B):
+            ancestorsOfB.add(parentOfChild[B])
+            B = parentOfChild[B]
+        else:
+            break;
+        common = ancestorsOfA & ancestorsOfB
+        if len(common) != 0:
+            assert(len(common) == 1)
+            return list(common)[0]
+    assert(A == B)
+    return A
+
+n = int(input())
+for i in range(n-1):
+    child,parent = input().split()
+    parentOfChild[child] = parent
+
+k = int(input())
+for i in range(k):
+    fst,snd = input().split()
+    print(findCommonAncestor(fst,snd))
+
+
+def genetic(first, second):
+    if first == second:
+        return(first)
+    if p_tree[first] == p_tree[second]:
+        return( p_tree[first] )
+    first1 = first
+    while  second in p_tree:
+        while first1 in p_tree:
+            if first1 == second:
+                return(second)
+            first1 = p_tree[first1]
+        first1 = first
+        second = p_tree[second]
+    if first == second:
+        return(first)
+    elif first in p_tree:return(second)
+    else: return(first)
+        
+p_tree = dict()
+n = int( input() )
+for i in range(n - 1):
+    child, parent = input().split()
+    p_tree[child] = parent
+    
+for i in range( int( input() ) ):
+    rel, vel = input().split()
+    if rel in p_tree.keys() and vel in p_tree.keys():
+        print( genetic(rel, vel) )
+    elif rel in p_tree.keys(): print(vel)
+    else:print(rel)
+
