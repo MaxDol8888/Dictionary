@@ -20,3 +20,104 @@ for i in sorted(b):
         print(j, b[i][j])
        
 
+from collections import defaultdict
+from sys import stdin
+
+clients = defaultdict(lambda: defaultdict(int))
+for line in stdin.readlines():
+    client, thing, value = line.split()
+    clients[client][thing] += int(value)
+        
+for client in sorted(clients):
+    print(client + ':')
+    for thing in sorted(clients[client]):
+        print(thing, clients[client][thing])
+
+
+from sys import stdin
+
+lines = stdin.readlines()
+dic = {}
+
+for i in lines:
+    req = i.split()
+    name = req[0]
+    product = req[1]
+    value = req[2]
+
+    if name not in dic:
+        dic[name] = {product: value}
+    elif product not in dic[name]:
+        dic[name].update({product: value})
+    else:
+        dic[name][product] = int(dic[name][product]) + int(value)
+
+for key, value in sorted(dic.items()):
+    print(key + ":")
+    for k, v in sorted(value.items()):
+        print(k + " " + str(v))
+
+
+flag_execute = True
+base_dict = {}
+while flag_execute:
+    try:
+        buyer, product, quant = input().split()
+        quant = int(quant)
+        if buyer in base_dict:
+            if product in base_dict[buyer]:
+                base_dict[buyer][product] += quant
+            else:
+                base_dict[buyer][product] = quant
+        else:
+            base_dict[buyer] = dict([(product, quant)])
+    except:
+        flag_execute = False
+# print
+for buyer_i in sorted(base_dict.keys()):
+    print(buyer_i + ":")
+    for product_i in sorted(base_dict[buyer_i].keys()):
+        print(product_i + " " + str(base_dict[buyer_i][product_i]))
+
+
+d = {}
+while True:
+    try:
+        s = input().split()
+        s[2] = int(s[2])
+        if s[0] in d:
+            if s[1] in d[s[0]]:
+                d[s[0]][s[1]] += s[2]
+            else:
+                d[s[0]][s[1]] = s[2]
+        else:
+            d[s[0]] = {s[1] : s[2]}
+    except:
+        break
+for i in sorted(d):
+    print(i + ':')
+    for j in sorted(d[i]):
+        print(j, d[i][j])
+
+
+from sys import stdin
+# Используются вложенные в друг друга словари
+# Словарь покупателей (sales). Ключ = имя покупателя, значение = словарь покупок
+# Словарь покупок. Ключ = название предмета, значение - количесвтво
+sales = {}
+for line in stdin.readlines():
+    person, product, amount = line.split()
+    amount = int(amount)
+    if sales.get(person) == None:
+        sales[person] = {}
+    sales[person][product] = sales[person].get(product,0) + amount
+# Сортируем покупки и преобразуем в список используя генератор списков
+sales = [(s, sorted([(j, sales[s][j]) for j in sales[s]])) for s in sales]
+# Выводим
+for person in sorted(sales):
+    name, products = person[0], person[1]
+    print(name, end=":\n")
+    for p in products:
+        print(*p)
+
+
