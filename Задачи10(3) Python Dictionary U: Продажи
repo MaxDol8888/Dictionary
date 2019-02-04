@@ -1,0 +1,22 @@
+#Hapilin
+b = {}
+while True:
+    try:
+        chel, prod, kolvo = input().split()
+        kolvo = int(kolvo)
+        if chel in b:
+            if prod in b[chel]:
+                b[chel][prod] += kolvo
+            else:
+                b[chel][prod] = kolvo
+        else:
+            b[chel] = {}
+            b[chel][prod] = kolvo
+    except:
+        break
+for i in sorted(b):
+    print(i, ':', sep = '')
+    for j in sorted(b[i]):
+        print(j, b[i][j])
+       
+
