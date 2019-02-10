@@ -1,0 +1,39 @@
+#Hapilin
+b = dict()
+c = dict()
+d = dict()
+for i in range(int(input())):
+    a = input().split()
+    b.update({a[0]:a[1]})
+for i in range(int(input())):
+    a = input().split()
+    if a[0] not in c:
+        c.update({a[0]:{a[1]: int(1)}})
+    elif a[0] in c and a[1] not in c[a[0]]:
+        if a[0] not in d:
+            d.update({a[0]:{a[1]: int(1)}})
+        else:
+            if a[1] not in d[a[0]]:
+                d.update({a[0]:{a[1]: int(1)}})
+            else:
+                d.update({a[0]:{a[1]: int(d[a[0]][a[1]]) + 1}})
+    else:
+        if a[1] not in c[a[0]]:
+            c.update({a[0]:{a[1]: int(1)}})
+        else:
+            c.update({a[0]:{a[1]: int(c[a[0]][a[1]]) + 1}})
+m = dict()
+for i in sorted(c.keys()):
+    for j in sorted(d.keys()):
+        if i == j:
+            z = list(c[i])
+            z = str(*z)
+            v = list(d[i])
+            v = str(*v)
+            if c[i][z]>d[i][v]:
+                m.update({z:b[j]})
+            else:
+                m.update({v:b[j]})
+for i in sorted(m.keys()):
+    print(i , m[i])
+
