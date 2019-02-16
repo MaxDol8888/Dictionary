@@ -39,6 +39,34 @@ most_frequent = [k for k, v in counter.items() if v == max_count]
 print(min(most_frequent))
 
 
+#Soroka
+d={}
+s=input()
+for i in s.split():
+    d[i]=0
+for i in s.split():
+    d[i]+=1
+d=dict(zip(d.values(),d.keys()))
+print(d[max(d.keys())])
+
+#Soroka Podrobno
+d={}
+s=input()
+for i in s.split():
+    d[i]=0
+print(d)
+print()
+for i in s.split():
+    d[i]+=1
+print(d)
+print()
+print(d.values())
+print(type(d.values()))
+d=dict(zip(d.values(),d.keys()))
+print(d)
+print(d[max(d.keys())])
+
+
 c = {}
 for i in range(int(input())):
     l = input().split()
