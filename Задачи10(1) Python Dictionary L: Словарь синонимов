@@ -39,3 +39,31 @@ for key in s:
     if key == word: print(s[key])
 
 
+#Soroka
+import random
+n=random.randint(3,7)
+print("n =",n)
+d={}
+for i in range(n):
+    s=input()
+    a=s.split()[0]
+    b=s.split()[1]
+    d[a]=b
+    d[b]=a
+print(d[input()])
+
+#Soroka Podrobno
+import random
+n=random.randint(3,7)
+print("n =",n)
+#n = int(input())
+d={}
+for i in range(n):
+    s=input()
+    a=s.split()[0]
+    print(a)
+    b=s.split()[1]
+    print(b)
+    d[a]=b
+    d[b]=a
+print(d[input()])
