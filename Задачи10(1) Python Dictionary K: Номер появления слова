@@ -32,3 +32,20 @@ for str in a:
     else:
         print(0, end = ' ')
         d[str] = 1
+
+
+#Soroka
+s=input()
+b=set(s.split(' '))
+b.discard('')
+print(b)
+a={}
+for i in b:
+    a[i]=0
+for i in s.split(' '):
+    if(i in list(a.keys())):
+        print(a[i])
+        a[i]+=1
+    else:
+        continue
+
