@@ -1,0 +1,35 @@
+#Soroka
+d={}
+while True:
+    s=input()
+    k=s.split()
+    if(len(k)==2):
+        if(k[0]=="INCOME"):
+            for i in d.keys():
+                d[i]=d[i]+d[i]*(int(k[1])/100)
+            print(d)
+        else:
+            try:
+                print(d[k[1]])
+            except(KeyError):
+                print("ERROR")
+    elif(len(k)==3):
+        if(k[0]=="DEPOSIT"):
+            try:
+                d[k[1]]+=int(k[2])
+            except(KeyError):
+                d[k[1]]=int(k[2])
+        else:
+            try:
+                d[k[1]]-=int(k[2])
+            except(KeyError):
+                d[k[1]]=-int(k[2])
+    else:
+        try:
+            d[k[2]]+=int(k[3])
+            d[k[1]]-=int(k[3])
+        except(KeyError):
+            d[k[2]]=int(k[3])
+            d[k[1]]=-int(k[3])
+            
+            
