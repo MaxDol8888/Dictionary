@@ -22,6 +22,41 @@ for i in range(int(input())):
             print("Access denied")     
 
 
+#Soroka
+import random
+n=4#random.randint(4,7)
+print("n =",n)
+d={}
+a=[]
+b=[]
+for i in range(n):
+    s=input()
+    d[s.split()[0]]=None
+    a.append(s.split()[0])
+    b.append(s.split()[1::])
+for i in range(len(a)):
+    if(d[a[i]]==None):
+        d[a[i]]=set(b[i])
+    else:
+        d[a[i]]=d[a[i]]|set(b[i])
+e=[]
+m=5#random.randint(3,7)
+print("m =",m)
+for i in range(m):
+    s=input()
+    e.append(s.split())
+key={'read':'R','write':'W','execute':'X'}
+for i in e:
+    i[0]=key[i[0]]
+q=[]
+for i in e:
+    w=d[i[1]]
+    if(i[0] in w):
+        print("OK")
+    else:
+        print("Access denied")
+
+
 ACTION_PERMISSION = {
     'read': 'R',
     'write': 'W',
