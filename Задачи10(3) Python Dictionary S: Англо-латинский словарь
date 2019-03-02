@@ -81,3 +81,38 @@ for i in sorted(dic.keys()):
     print(i,"-",*dic[i])
         
         
+#Lysenko
+from collections import defaultdict
+d = defaultdict(list)
+N=int(input())
+for i in range(N):
+    latin = [str(j) for j in input().replace(',', '').split()]
+    inglish = latin[0]
+    latin.remove('-')
+    for slovo in latin[1:]:
+        d[slovo].append(inglish)
+print(len(d))
+for i in sorted(d.keys()):
+    print(i, '-', *d[i])
+
+
+#Sidorov
+line = []
+wordE = {}
+wordL = {}
+
+for i in range(int(input())):
+    line = input().split()
+    wordE[line[0]] = line[2:]
+    
+for k, v in wordE.items():
+    for i in v:
+        if wordL.get(i.replace(',',''), 0) != 0:
+            wordL[i.replace(',','')] += ', ' + k
+        else:
+            wordL[i.replace(',','')] = k
+            
+print(len(wordL))
+for k,v in sorted(wordL.items()):
+    print(k.replace(',',''), '-', v)
+
