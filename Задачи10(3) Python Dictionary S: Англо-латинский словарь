@@ -60,4 +60,24 @@ for lat in sorted(l_e.keys()):
     print(*l_e[lat], sep=", ")
     
     
-#
+#Soroka
+import random
+n=3#random.randint(3,7)
+print(n)
+dic={}
+w=[]
+for _ in range(n):
+    s=input()
+    a=s.split(" - ")
+    a[1]=a[1].split(", ")
+    for i1 in a[1]:
+        dic[i1]=[]
+    w.append(a)
+for i in w:
+    for i1 in i[1]:
+        dic[i1].append(i[0])
+print(len(dic.keys()))
+for i in sorted(dic.keys()):
+    print(i,"-",*dic[i])
+        
+        
