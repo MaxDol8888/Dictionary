@@ -19,3 +19,81 @@ for i in dictant:
 print(oshibka)
 
 
+#Soroka
+import random
+errors=0
+n=4#random.randint(3,7)
+print(n)
+dic={}
+w=[]
+for _ in range(n):
+    s=input()
+    dic[s.lower()]=[]
+    w.append(s)
+for i in w:
+    if(i.lower() in dic.keys()):
+        dic[i.lower()].append(i)
+    else:
+        continue
+s=input()
+e=set(s.split(' '))
+e.discard(' ')
+w.clear()
+for i in e:
+    if(i==i.lower() and i.lower() not in dic.keys()):
+        w.append(i)
+    else:
+        continue
+for i in w:
+    e.discard(i)
+for i in e:
+    if(i.lower() in dic.keys()):
+        if(i in dic[i.lower()]):
+            continue
+        else:
+            errors+=1
+    else:
+        errors+=1
+print(errors)
+
+#Soroka Razbor
+import random
+errors=0
+n=4#random.randint(3,7)
+print(n)
+dic={}
+w=[]
+for _ in range(n):
+    s=input()
+    dic[s.lower()]=[]
+    w.append(s)
+for i in w:
+    if(i.lower() in dic.keys()):
+        dic[i.lower()].append(i)
+    else:
+        continue
+print(w)
+s=input()
+e=set(s.split(' '))
+e.discard(' ')
+w.clear()
+print(e)
+for i in e:
+    if(i==i.lower() and i.lower() not in dic.keys()):
+        w.append(i)
+    else:
+        continue
+print(w)
+for i in w:
+    e.discard(i)
+print(e)
+for i in e:
+    if(i.lower() in dic.keys()):
+        if(i in dic[i.lower()]):
+            continue
+        else:
+            errors+=1
+    else:
+        errors+=1
+print(e)
+print(errors)
