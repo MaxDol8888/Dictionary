@@ -97,3 +97,43 @@ for i in e:
         errors+=1
 print(e)
 print(errors)
+
+
+#Lysenko
+prav=0
+slovar=[]
+vod=[]
+temp=[]
+glas=list('AEIOU')
+a=int(input())
+for _ in range(a):
+    slovar.append(input())
+vod=[X for X in input().split(' ')]
+for i in range(len(vod)):
+    temp.append(list(vod[i]))
+for i in range(len(vod)):
+    for j in range(len(temp[i])):
+        chis=temp[i][j]
+        if list(chis) == list(set(chis) & set(glas)):
+            prav+=1
+print(len(vod)-prav)
+        
+
+#Sidorov
+n = int(input())
+accents = {}
+for i in range(n):
+    word = input()
+    base_form = word.lower()
+    if base_form not in accents:
+        accents[base_form] = set()
+    accents[base_form].add(word)
+ 
+errors = 0
+sent = input().split()
+for word in sent:
+    base_form = word.lower()
+    if (base_form in accents and word not in accents[base_form]
+            or len([l for l in word if l.isupper()]) != 1):
+        errors += 1
+print(errors)
