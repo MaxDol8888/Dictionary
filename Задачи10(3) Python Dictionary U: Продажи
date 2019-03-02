@@ -20,6 +20,27 @@ for i in sorted(b):
         print(j, b[i][j])
        
 
+#Soroka
+import random
+n=6#random.randint(3,7)
+dic={}
+names=set()
+another=[]
+for _ in range(n):
+    s=input()
+    a=s.split(' ')
+    names.add(a[0])
+    another.append([a[0],a[1],a[2]])
+for i in names:
+    dic[i]={}
+for i in another:
+    dic[i[0]].update({i[1]:i[2]})
+for i in sorted(names):
+    print(i,":")
+    for i1 in sorted(dic[i].keys()):
+        print(i1,dic[i][i1])
+        
+
 from collections import defaultdict
 from sys import stdin
 
